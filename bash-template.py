@@ -298,7 +298,7 @@ function sum_exp6_flags() {
 #     $2 - value assignment (e.g ${OPTARG})
 function add_assign_getopts() {
   eval 'var_name=${flag_'$1'_string#*[[:blank:]]}'
-  eval $var_name'='$2
+  [[ -z "${2// }" ]] && eval $var_name'='True || eval $var_name'='$2
   eval 'flag_'$1'=$((flag_'$1'+1))'
 }
 
@@ -332,7 +332,7 @@ do
     sum_exp6_flags
     if [[ $SUM_EXP6 -gt 36 ]]; then
       current_flag_index=$(($OPTIND-2))
-      echo "Replicate flag: ${!current_flag_index} has already been"\
+      echo "Replicate flag: ${!current_flag_index} has already been"\\
       "specified"
       echo "$usage_help"
       exit $replicate_flag_code
