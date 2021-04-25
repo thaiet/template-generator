@@ -3,7 +3,8 @@ This quickly generates template for certain scripts (at least how I like it). Su
 as generating a bash template for CLI commands.
 
 ## Languages Supported w/ Features
-* Bash 
+* Bash - Note that bash scripts should be simple (if there is complex logic definitely do not write this in bash)
+
 
 ## Requirements
 * Python3
